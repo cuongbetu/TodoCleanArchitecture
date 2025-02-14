@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoCleanArchitecture.API",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoCleanArchitecture.Domain", "TodoCleanArchitecture.Domain\TodoCleanArchitecture.Domain.csproj", "{399FC4B6-F38A-4759-B2CE-FF2A0217051A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoCleanArchitecture.Infrastructure", "TodoCleanArchitecture.Infrastructure\TodoCleanArchitecture.Infrastructure.csproj", "{A1FCD094-3ACE-4AB5-A5B1-79C6AB664C3F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoCleanArchitecture.Infrastructure", "TodoCleanArchitecture.Infrastructure\TodoCleanArchitecture.Infrastructure.csproj", "{A1FCD094-3ACE-4AB5-A5B1-79C6AB664C3F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoCleanArchitecture.Application", "TodoCleanArchitecture.Application\TodoCleanArchitecture.Application.csproj", "{DB115A78-32EF-4213-9296-889BDBE61C67}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoCleanArchitecture.Application", "TodoCleanArchitecture.Application\TodoCleanArchitecture.Application.csproj", "{DB115A78-32EF-4213-9296-889BDBE61C67}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{207C6D78-AEA4-4394-AFD3-E8701186C91C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{DB115A78-32EF-4213-9296-889BDBE61C67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB115A78-32EF-4213-9296-889BDBE61C67}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB115A78-32EF-4213-9296-889BDBE61C67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{207C6D78-AEA4-4394-AFD3-E8701186C91C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{207C6D78-AEA4-4394-AFD3-E8701186C91C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{207C6D78-AEA4-4394-AFD3-E8701186C91C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{207C6D78-AEA4-4394-AFD3-E8701186C91C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
