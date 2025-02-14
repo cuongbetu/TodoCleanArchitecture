@@ -1,0 +1,32 @@
+version: "3.8"
+name: todo-clean
+
+services:
+  api:
+    container_name: todo-clean
+    image: todo-clean:latest
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+      - ASPNETCORE_URLS=http://+:8080
+    ports:
+      - 8080:8080
+    depends_on:
+      postgres:
+        condition: service_healthy
+  sqlserver:
+    container_name: sqlserver
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=YourStrong!Passw0rd
+    ports:
+      - 1433:1433
+    volumes:
+      - sqlserver-data:/var/opt/mssql
+    healthcheck:
+      test: [ "CMD-SHELL", "curl -s localhost:1433" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+volumes:
+  sqlserver-data:
