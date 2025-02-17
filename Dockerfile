@@ -7,23 +7,22 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 
-# Copy all project files first
-COPY ["TodoCleanArchitecture.API.csproj", "./"]
-COPY ["../TodoCleanArchitecture.Application/TodoCleanArchitecture.Application.csproj", "../TodoCleanArchitecture.Application/"]
-COPY ["../TodoCleanArchitecture.Infrastructure/TodoCleanArchitecture.Infrastructure.csproj", "../TodoCleanArchitecture.Infrastructure/"]
+# Copy all project files
+COPY ["TodoCleanArchitecture.API/TodoCleanArchitecture.API.csproj", "TodoCleanArchitecture.API/"]
+COPY ["TodoCleanArchitecture.Application/TodoCleanArchitecture.Application.csproj", "TodoCleanArchitecture.Application/"]
+COPY ["TodoCleanArchitecture.Infrastructure/TodoCleanArchitecture.Infrastructure.csproj", "TodoCleanArchitecture.Infrastructure/"]
 
-# Copy the entire solution
-COPY . ./
-COPY ["../TodoCleanArchitecture.Application/", "../TodoCleanArchitecture.Application/"]
-COPY ["../TodoCleanArchitecture.Infrastructure/", "../TodoCleanArchitecture.Infrastructure/"]
+# Copy all source code
+COPY . .
 
 # Restore and build
-RUN dotnet restore "TodoCleanArchitecture.API.csproj"
-RUN dotnet build "TodoCleanArchitecture.API.csproj" -c $BUILD_CONFIGURATION -o /app/build
+WORKDIR /src/TodoCleanArchitecture.API
+RUN dotnet restore
+RUN dotnet build -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "TodoCleanArchitecture.API.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
