@@ -11,8 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoCleanArchitecture.Infra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoCleanArchitecture.Application", "TodoCleanArchitecture.Application\TodoCleanArchitecture.Application.csproj", "{DB115A78-32EF-4213-9296-889BDBE61C67}"
 EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{207C6D78-AEA4-4394-AFD3-E8701186C91C}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,10 +33,6 @@ Global
 		{DB115A78-32EF-4213-9296-889BDBE61C67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB115A78-32EF-4213-9296-889BDBE61C67}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB115A78-32EF-4213-9296-889BDBE61C67}.Release|Any CPU.Build.0 = Release|Any CPU
-		{207C6D78-AEA4-4394-AFD3-E8701186C91C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{207C6D78-AEA4-4394-AFD3-E8701186C91C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{207C6D78-AEA4-4394-AFD3-E8701186C91C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{207C6D78-AEA4-4394-AFD3-E8701186C91C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
