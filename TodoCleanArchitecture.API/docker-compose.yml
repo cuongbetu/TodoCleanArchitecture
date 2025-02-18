@@ -13,6 +13,8 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
+    networks:
+      - my_networks
   postgres:
     container_name: postgres
     image: postgres:17-alpine
@@ -28,5 +30,21 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    networks:
+      - my_networks
+  db-init:
+    image: postgres:17-alpine
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./init_db.sh:/init_db.sh
+    entrypoint: ./init_db.sh
+    networks:
+      - my_networks
 volumes:
   postgres-data:
+
+networks:
+  my_networks:
+    driver: bridge
