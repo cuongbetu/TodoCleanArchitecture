@@ -15,6 +15,9 @@ COPY ["TodoCleanArchitecture.Infrastructure/TodoCleanArchitecture.Infrastructure
 # Copy all source code
 COPY . .
 
+# Install the dotnet-ef tool
+RUN dotnet tool install --global dotnet-ef
+
 # Restore and build
 WORKDIR /src/TodoCleanArchitecture.API
 RUN dotnet restore

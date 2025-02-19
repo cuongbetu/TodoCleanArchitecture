@@ -11,8 +11,8 @@ using TodoCleanArchitecture.Infrastructure;
 namespace TodoCleanArchitecture.Infrastructure.Migrations
 {
     [DbContext(typeof(ToDoCleanDbContext))]
-    [Migration("20250218102051_InitialDb_v2")]
-    partial class InitialDb_v2
+    [Migration("20250219065554_InitialDB")]
+    partial class InitialDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

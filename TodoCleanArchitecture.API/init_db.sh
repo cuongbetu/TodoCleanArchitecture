@@ -1,12 +1,12 @@
 #!/bin/bash
 set -e
 
-echo "Waiting for PostgreSQL to start..."
-until pg_isready -h postgres -U postgres; do
-  sleep 1
-done
-
 echo "Creating database TodoClean..."
-psql -h postgres -U postgres -c 'CREATE DATABASE "TodoClean";'
+
+# Create a new database
+psql -v ON_ERROR_STOP=1 --username "$POSTGRES_USER" --dbname "$POSTGRES_DB" <<-EOSQL
+    CREATE DATABASE TodoClean;
+    GRANT ALL PRIVILEGES ON DATABASE TodoClean TO postgres;
+EOSQL
 
 echo "Database TodoClean created."

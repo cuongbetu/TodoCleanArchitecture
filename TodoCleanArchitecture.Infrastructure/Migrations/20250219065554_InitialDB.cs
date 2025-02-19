@@ -8,7 +8,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace TodoCleanArchitecture.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class NewMigrationPostgres : Migration
+    public partial class InitialDB : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
