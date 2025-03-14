@@ -24,7 +24,7 @@ public class ManagerService : IManagerService
                                         ManagerName = x.ManagerName
                                     }).ToListAsync();
        
-        if (result.Count > 0)
+        if (result.Count <= 0)
         {
             return APIResponse.BadRequest("Result not found");
         }
