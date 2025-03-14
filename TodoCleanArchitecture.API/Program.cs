@@ -1,5 +1,7 @@
+using TodoCleanArchitecture.API.Middlewares;
 using TodoCleanArchitecture.Application;
 using TodoCleanArchitecture.Infrastructure;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +22,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+// API custom response middleware
+app.UseMiddleware<APIResponseMiddleware>();
 
 app.UseHttpsRedirection();
 

@@ -41,15 +41,5 @@ namespace TodoCleanArchitecture.API.Controllers
                 throw new Exception(ex.Message);
             }
         }
-
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
     }
 }

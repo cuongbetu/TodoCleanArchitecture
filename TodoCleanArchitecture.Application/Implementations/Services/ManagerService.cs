@@ -1,4 +1,7 @@
-﻿using TodoCleanArchitecture.Application.Abstractions.Services;
+﻿using Microsoft.EntityFrameworkCore;
+using TodoCleanArchitecture.Application.Abstractions.Services;
+using TodoCleanArchitecture.Application.DTOs.Common;
+using TodoCleanArchitecture.Application.DTOs.Manager;
 using TodoCleanArchitecture.Domain.Abstractions.UnitOfWorks;
 using TodoCleanArchitecture.Domain.Entities;
 
@@ -12,9 +15,21 @@ public class ManagerService : IManagerService
     {
         _unitOfWork = unitOfWork;
     }
-    public Task<List<Manager>> GetAll()
+
+    public async Task<APIResponse> GetAll()
     {
-        return _unitOfWork.Manager.GetAll();
+        var result = await _unitOfWork.Manager.FindByCondition(x => x.Id != 0)
+                                    .Select(x => new ManagerDTO
+                                    {
+                                        ManagerName = x.ManagerName
+                                    }).ToListAsync();
+       
+        if (result.Count > 0)
+        {
+            return APIResponse.BadRequest("Result not found");
+        }
+
+        return APIResponse.Success(result);
     }
 
     public async Task<Manager> Create(Manager request)
